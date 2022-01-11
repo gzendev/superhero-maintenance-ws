@@ -22,6 +22,8 @@ Software de mantenimiento de Súper Héroes desarrollado como challenge para W2M
   
 7. Security Rest API
   
+8. Docker
+  
 ## Pasos para Configurar
   
 **1. Clonar la Aplicación
