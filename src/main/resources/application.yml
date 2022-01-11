@@ -1,0 +1,73 @@
+logging:
+  level:
+    travel.w2m.sh.maint: TRACE
+    org.springframework: INFO
+    org.apache.catalina.webresources.Cache: ERROR
+
+spring:
+  application:
+    name: superhero-maintenance-ws
+  jmx:
+    enabled: true
+  flyway:
+    enabled: true
+    locations: classpath:/db/scripts/migration
+    schemas: PUBLIC
+  data:
+    jpa.repositories.enabled: true
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: true
+      generate-ddl: true
+    properties:
+      hibernate:
+        jdbc.lob.non_contextual_creation: true
+        show_sql: true
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+      show-sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include:
+        - info
+        - health
+        - prometheus
+        - flyway
+        - loggers
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+      show-details: always
+    flyway:
+      enabled: true
+    loggers:
+      enabled: true
+    prometheus:
+      enabled: true
+    metrics:
+      enabled: true
+    env:
+      enabled: true
