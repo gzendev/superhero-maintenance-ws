@@ -59,7 +59,7 @@ public class SuperHeroController {
       return ResponseEntity.ok(superHeroService.update(dto));
     }
     
-    throw new IllegalArgumentException("SuperHero with id " + id + " not found");
+    throw new IllegalArgumentException("SuperHero not found with id " + id);
   }
 
   @TimedExecution

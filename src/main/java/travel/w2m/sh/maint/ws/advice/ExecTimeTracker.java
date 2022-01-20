@@ -18,7 +18,7 @@ public class ExecTimeTracker {
     long start = System.currentTimeMillis();
     Object o = p.proceed();
     long end = System.currentTimeMillis();
-    LOGGER.info("Method name: " + p.getSignature() + " took " + (end - start) + " ms to execute.");
+    LOGGER.info("Method {} took {} ms to execute.", p.getSignature(), (end - start));
     return o;
   }
 
